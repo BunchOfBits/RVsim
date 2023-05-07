@@ -4,52 +4,52 @@ namespace RVsim.Specification
 {
   internal class FlipFlop
   {
-    private Source _d;
-    private Source _clk;
+    private Source<bool> _d;
+    private Source<bool> _clk;
     private RVsim.FlipFlop _dut;
-    private Sink _q;
-    private Sink _qn;
+    private Sink<bool> _q;
+    private Sink<bool> _qn;
 
     [SetUp]
     public void Setup()
     {
-      _d = new Source("D");
-      _clk = new Source("CLK");
+      _d = new Source<bool>("D");
+      _clk = new Source<bool>("CLK");
 
       _dut = new RVsim.FlipFlop("FF1", _d.Port, _clk.Port);
 
-      _q = new Sink(_dut.Q);
-      _qn = new Sink(_dut.Qn);
+      _q = new Sink<bool>(_dut.Q);
+      _qn = new Sink<bool>(_dut.Qn);
     }
 
     [Test]
     public void CheckThatFlipFlopHoldsWhenClockIsStable()
     {
-      _d.Set(1u);
+      _d.Set(true);
 
-      Assert.That(_q.Value, Is.EqualTo(0));
-      Assert.That(_qn.Value, Is.Not.EqualTo(0));
+      Assert.That(_q.Value, Is.False);
+      Assert.That(_qn.Value, Is.True);
     }
 
     [Test]
     public void CheckThatFlipFlopChangesUponPositiveEdgeOfClock()
     {
-      _d.Set(1u);
-      _clk.Set(1u);
+      _d.Set(true);
+      _clk.Set(true);
 
-      Assert.That(_q.Value, Is.Not.EqualTo(0));
-      Assert.That(_qn.Value, Is.EqualTo(0));
+      Assert.That(_q.Value, Is.True);
+      Assert.That(_qn.Value, Is.False);
     }
 
     [Test]
     public void CheckThatFlipFlopIsStabkeAfterPositiveEdgeOfClock()
     {
-      _d.Set(1u);
-      _clk.Set(1u);
-      _d.Set(0u);
+      _d.Set(true);
+      _clk.Set(true);
+      _d.Set(false);
 
-      Assert.That(_q.Value, Is.Not.EqualTo(0));
-      Assert.That(_qn.Value, Is.EqualTo(0));
+      Assert.That(_q.Value, Is.True);
+      Assert.That(_qn.Value, Is.False);
     }
   }
 }

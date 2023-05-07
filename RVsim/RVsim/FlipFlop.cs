@@ -2,31 +2,31 @@
 {
   public class FlipFlop
   {
-    private readonly Port _d;
-    private readonly Port _clk;
+    private readonly Port<bool> _d;
+    private readonly Port<bool> _clk;
 
-    public FlipFlop(string name, Port d, Port clk)
+    public FlipFlop(string name, Port<bool> d, Port<bool> clk)
     {
       _d = d;
       _clk = clk;
 
-      Q = new Port(name, nameof(Q));
-      Qn = new Port(name, nameof(Qn), 1);
+      Q = new Port<bool>(name, nameof(Q));
+      Qn = new Port<bool>(name, nameof(Qn), true);
 
       _d.PortChanging += Update;
       _clk.PortChanging += Update;
     }
 
-    public Port Q { get; }
+    public Port<bool> Q { get; }
 
-    public Port Qn { get; }
+    public Port<bool> Qn { get; }
 
-    private void Update(object sender, PortChangingEventArgs args)
+    private void Update(object sender, PortChangingEventArgs<bool> args)
     {
-      if (_clk.Value == 0u && args.NewValue != 0u)
+      if (_clk.Value == false && args.NewValue == true)
       {
         Q.Value = _d.Value;
-        Qn.Value = _d.Value != 0u ? 0u : 1u;
+        Qn.Value = !_d.Value;
       }
     }
   }

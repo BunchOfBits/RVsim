@@ -2,8 +2,8 @@
 
 namespace RVsim
 {
-  public class PortChangingEventArgs : EventArgs
+  public class PortChangingEventArgs<T> : EventArgs
   {
-    public uint NewValue { get; set; }
+    public T NewValue { get; set; }
   }
 }

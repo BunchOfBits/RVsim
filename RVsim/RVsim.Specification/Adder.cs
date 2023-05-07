@@ -4,20 +4,20 @@ namespace RVsim.Specification
 {
   public class Adder
   {
-    private Source _a;
-    private Source _b;
+    private Source<uint> _a;
+    private Source<uint> _b;
     private RVsim.Adder _dut;
-    private Sink _sink;
+    private Sink<uint> _sink;
 
     [SetUp]
     public void Setup()
     {
-      _a = new Source("A");
-      _b = new Source("B");
+      _a = new Source<uint>("A");
+      _b = new Source<uint>("B");
 
       _dut = new RVsim.Adder("A1", _a.Port, _b.Port);
 
-      _sink = new Sink(_dut.Sum);
+      _sink = new Sink<uint>(_dut.Sum);
     }
 
     [Test]

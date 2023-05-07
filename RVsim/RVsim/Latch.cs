@@ -4,24 +4,24 @@ namespace RVsim
 {
   public class Latch
   {
-    private readonly Port _d;
-    private readonly Port _e;
+    private readonly Port<bool> _d;
+    private readonly Port<bool> _e;
 
-    public Latch(string name, Port d, Port e)
+    public Latch(string name, Port<bool> d, Port<bool> e)
     {
       _d = d;
       _e = e;
 
-      Q = new Port(name, nameof(Q));
-      Qn = new Port(name, nameof(Qn), 1);
+      Q = new Port<bool>(name, nameof(Q));
+      Qn = new Port<bool>(name, nameof(Qn), true);
 
       _d.PortChanged += UpdateD;
       _e.PortChanged += UpdateE;
     }
 
-    public Port Q { get; }
+    public Port<bool> Q { get; }
 
-    public Port Qn { get; }
+    public Port<bool> Qn { get; }
 
     private void UpdateD(object sender, EventArgs args)
     {
@@ -33,12 +33,12 @@ namespace RVsim
       Update(_d.Value, _e.Value);
     }
   
-    private void Update(uint d, uint e)
+    private void Update(bool d, bool e)
     {
-      if (e != 0)
+      if (e == true)
       {
         Q.Value = d;
-        Qn.Value = d != 0u ? 0u : 1u;
+        Qn.Value = !d;
       }
     }
   }
