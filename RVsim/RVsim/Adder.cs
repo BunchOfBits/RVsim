@@ -1,4 +1,6 @@
-﻿namespace RVsim
+﻿using System;
+
+namespace RVsim
 {
   public class Adder
   {
@@ -18,14 +20,14 @@
 
     public Port Sum { get; }
 
-    private void UpdateA(object sender, PortChangedEventArgs args)
+    private void UpdateA(object sender, EventArgs args)
     {
-      Update(args.NewValue, _b.Value);
+      Update(_a.Value, _b.Value);
     }
 
-    private void UpdateB(object sender, PortChangedEventArgs args)
+    private void UpdateB(object sender, EventArgs args)
     {
-      Update(_a.Value, args.NewValue);
+      Update(_a.Value, _b.Value);
     }
 
     private void Update(uint a, uint b)

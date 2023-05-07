@@ -1,4 +1,6 @@
-﻿namespace RVsim
+﻿using System;
+
+namespace RVsim
 {
   public class Latch
   {
@@ -21,14 +23,14 @@
 
     public Port Qn { get; }
 
-    private void UpdateD(object sender, PortChangedEventArgs args)
+    private void UpdateD(object sender, EventArgs args)
     {
-      Update(args.NewValue, _e.Value);
+      Update(_d.Value, _e.Value);
     }
 
-    private void UpdateE(object sender, PortChangedEventArgs args)
+    private void UpdateE(object sender, EventArgs args)
     {
-      Update(_d.Value, args.NewValue);
+      Update(_d.Value, _e.Value);
     }
   
     private void Update(uint d, uint e)

@@ -50,10 +50,10 @@
     <Compile Include="FlipFlop.cs" />
     <Compile Include="Latch.cs" />
     <Compile Include="Port.cs" />
-    <Compile Include="PortChangedEventArgs.cs" />
+    <Compile Include="PortChangingEventArgs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Sink.cs" />
-    <Compile Include="Source.cs" />
+    <Compile Include="SinkBase.cs" />
+    <Compile Include="SourceBase.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

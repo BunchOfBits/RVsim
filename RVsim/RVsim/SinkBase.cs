@@ -1,8 +1,6 @@
-﻿using System;
-
-namespace RVsim
+﻿namespace RVsim
 {
-  public class Sink
+  public abstract class SinkBase
   {
     private readonly Port _port;
 
@@ -14,11 +12,9 @@ namespace RVsim
       }
     }
 
-    public Sink(Port port)
+    public SinkBase(Port port)
     {
       _port = port;
-
-      _port.PortChanged += (s, e) => { Console.WriteLine($"{_port.Name} = {e.NewValue}"); };
     }
   }
 }

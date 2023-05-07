@@ -31,15 +31,15 @@ namespace RVsim
       {
         if (_value != value)
         {
-          // To facilitate edge detection, during the event handler:
-          // - Port.Value will contain the previous value
-          // - args.NewValue will contain the new value
-          PortChanged?.Invoke(this, new PortChangedEventArgs { NewValue = value });
+          PortChanging?.Invoke(this, new PortChangingEventArgs { NewValue = value });
           _value = value;
+          PortChanged?.Invoke(this, EventArgs.Empty);
         }
       }
     }
 
-    public event EventHandler<PortChangedEventArgs> PortChanged;
+    public event EventHandler<PortChangingEventArgs> PortChanging;
+
+    public event EventHandler PortChanged;
   }
 }

@@ -13,15 +13,15 @@
       Q = new Port(name, nameof(Q));
       Qn = new Port(name, nameof(Qn), 1);
 
-      _d.PortChanged += Update;
-      _clk.PortChanged += Update;
+      _d.PortChanging += Update;
+      _clk.PortChanging += Update;
     }
 
     public Port Q { get; }
 
     public Port Qn { get; }
 
-    private void Update(object sender, PortChangedEventArgs args)
+    private void Update(object sender, PortChangingEventArgs args)
     {
       if (_clk.Value == 0u && args.NewValue != 0u)
       {
