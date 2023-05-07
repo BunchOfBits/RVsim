@@ -2,7 +2,7 @@
 
 namespace RVsim
 {
-  internal class Port
+  public class Port
   {
     private uint _value;
 
@@ -31,8 +31,11 @@ namespace RVsim
       {
         if (_value != value)
         {
+          // To facilitate edge detection, during the event handler:
+          // - Port.Value will contain the previous value
+          // - args.NewValue will contain the new value
+          PortChanged?.Invoke(this, new PortChangedEventArgs { NewValue = value });
           _value = value;
-          PortChanged?.Invoke(this, new PortChangedEventArgs { Port = value });
         }
       }
     }

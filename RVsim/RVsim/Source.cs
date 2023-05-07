@@ -2,7 +2,7 @@
 
 namespace RVsim
 {
-  internal class Source
+  public class Source
   {
     public Source(string name)
     {

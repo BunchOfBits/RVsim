@@ -5,6 +5,8 @@ VisualStudioVersion = 17.0.32014.148
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RVsim", "RVsim\RVsim.csproj", "{DA8F6E55-51F0-4032-826C-E92CCFE7E089}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RVsim.Specification", "RVsim.Specification\RVsim.Specification.csproj", "{8BE5E751-6027-4DA0-83A0-97E9FC5BBAEB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{DA8F6E55-51F0-4032-826C-E92CCFE7E089}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DA8F6E55-51F0-4032-826C-E92CCFE7E089}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DA8F6E55-51F0-4032-826C-E92CCFE7E089}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8BE5E751-6027-4DA0-83A0-97E9FC5BBAEB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8BE5E751-6027-4DA0-83A0-97E9FC5BBAEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8BE5E751-6027-4DA0-83A0-97E9FC5BBAEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8BE5E751-6027-4DA0-83A0-97E9FC5BBAEB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
