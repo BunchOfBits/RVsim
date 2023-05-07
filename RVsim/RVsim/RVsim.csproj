@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Adder.cs" />
+    <Compile Include="Latch.cs" />
     <Compile Include="Port.cs" />
     <Compile Include="PortChangedEventArgs.cs" />
     <Compile Include="Program.cs" />
