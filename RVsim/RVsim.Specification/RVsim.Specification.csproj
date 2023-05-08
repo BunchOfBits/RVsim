@@ -61,6 +61,10 @@
       <Project>{da8f6e55-51f0-4032-826c-e92ccfe7e089}</Project>
       <Name>PicoSim</Name>
     </ProjectReference>
+    <ProjectReference Include="..\RVsim\RVsim.csproj">
+      <Project>{75ff1426-45c2-4849-b059-6a62ead22f98}</Project>
+      <Name>RVsim</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

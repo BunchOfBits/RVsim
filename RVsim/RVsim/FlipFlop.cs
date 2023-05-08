@@ -1,4 +1,6 @@
-﻿namespace PicoSim
+﻿using PicoSim;
+
+namespace RVsim
 {
   public class FlipFlop
   {

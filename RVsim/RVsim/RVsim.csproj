@@ -4,17 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{DA8F6E55-51F0-4032-826C-E92CCFE7E089}</ProjectGuid>
+    <ProjectGuid>{75FF1426-45C2-4849-B059-6A62EAD22F98}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>PicoSim</RootNamespace>
-    <AssemblyName>PicoSim</AssemblyName>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>RVsim</RootNamespace>
+    <AssemblyName>RVsim</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -24,16 +23,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup>
-    <StartupObject />
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -46,11 +41,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Port.cs" />
-    <Compile Include="PortChangingEventArgs.cs" />
+    <Compile Include="Adder.cs" />
+    <Compile Include="FlipFlop.cs" />
+    <Compile Include="Latch.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Sink.cs" />
-    <Compile Include="Source.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PicoSim\PicoSim.csproj">
+      <Project>{da8f6e55-51f0-4032-826c-e92ccfe7e089}</Project>
+      <Name>PicoSim</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
