@@ -1,4 +1,4 @@
-﻿namespace RVsim
+﻿namespace PicoSim
 {
   public class FlipFlop
   {
@@ -13,7 +13,6 @@
       Q = new Port<bool>(name, nameof(Q));
       Qn = new Port<bool>(name, nameof(Qn), true);
 
-      _d.PortChanging += Update;
       _clk.PortChanging += Update;
     }
 

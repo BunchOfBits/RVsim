@@ -1,12 +1,14 @@
 ﻿using NUnit.Framework;
 
+using PicoSim;
+
 namespace RVsim.Specification
 {
-  public class Latch
+  public class LatchTests
   {
     private Source<bool> _d;
     private Source<bool> _e;
-    private RVsim.Latch _dut;
+    private Latch _dut;
     private Sink<bool> _q;
     private Sink<bool> _qn;
 
@@ -16,7 +18,7 @@ namespace RVsim.Specification
       _d = new Source<bool>("D");
       _e = new Source<bool>("E");
 
-      _dut = new RVsim.Latch("L1", _d.Port, _e.Port);
+      _dut = new Latch("L1", _d.Port, _e.Port);
 
       _q = new Sink<bool>(_dut.Q);
       _qn = new Sink<bool>(_dut.Qn);

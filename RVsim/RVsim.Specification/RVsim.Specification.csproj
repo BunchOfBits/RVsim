@@ -48,18 +48,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Adder.cs" />
-    <Compile Include="FlipFlop.cs" />
-    <Compile Include="Latch.cs" />
+    <Compile Include="AdderTests.cs" />
+    <Compile Include="FlipFlopTests.cs" />
+    <Compile Include="LatchTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\RVsim\RVsim.csproj">
+    <ProjectReference Include="..\PicoSim\PicoSim.csproj">
       <Project>{da8f6e55-51f0-4032-826c-e92ccfe7e089}</Project>
-      <Name>RVsim</Name>
+      <Name>PicoSim</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

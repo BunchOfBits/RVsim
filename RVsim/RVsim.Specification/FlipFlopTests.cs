@@ -1,12 +1,14 @@
 ﻿using NUnit.Framework;
 
+using PicoSim;
+
 namespace RVsim.Specification
 {
-  internal class FlipFlop
+  internal class FlipFlopTests
   {
     private Source<bool> _d;
     private Source<bool> _clk;
-    private RVsim.FlipFlop _dut;
+    private FlipFlop _dut;
     private Sink<bool> _q;
     private Sink<bool> _qn;
 
@@ -16,7 +18,7 @@ namespace RVsim.Specification
       _d = new Source<bool>("D");
       _clk = new Source<bool>("CLK");
 
-      _dut = new RVsim.FlipFlop("FF1", _d.Port, _clk.Port);
+      _dut = new FlipFlop("FF1", _d.Port, _clk.Port);
 
       _q = new Sink<bool>(_dut.Q);
       _qn = new Sink<bool>(_dut.Qn);

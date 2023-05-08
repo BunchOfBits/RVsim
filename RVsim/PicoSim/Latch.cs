@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace RVsim
+namespace PicoSim
 {
   public class Latch
   {

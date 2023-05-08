@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{DA8F6E55-51F0-4032-826C-E92CCFE7E089}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>RVsim</RootNamespace>
-    <AssemblyName>RVsim</AssemblyName>
+    <RootNamespace>PicoSim</RootNamespace>
+    <AssemblyName>PicoSim</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
