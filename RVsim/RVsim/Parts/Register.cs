@@ -5,19 +5,19 @@ using PicoSim;
 namespace RVsim.Parts
 {
   public class Register<T>
-    where T : IComparable
+    where T : IComparable<T>
   {
     private readonly Port<T> _d;
     private readonly Port<bool> _e;
     private readonly Port<bool> _clk;
-    private readonly Sensitivity _sensitivity;
+    private readonly bool _edge;
 
     public Register(string name, Port<T> d, Port<bool> e, Port<bool> clk, Sensitivity sensitivity)
     {
       _d = d;
       _e = e;
       _clk = clk;
-      _sensitivity = sensitivity;
+      _edge = sensitivity == Sensitivity.PositiveEdge;
 
       Q = new Port<T>(name, nameof(Q));
 
@@ -40,9 +40,7 @@ namespace RVsim.Parts
     {
       if (_e.Value)
       {
-        var edge = _sensitivity == Sensitivity.PositiveEdge;
-
-        if (_clk.Value == !edge && args.NewValue == edge)
+        if (_clk.Value == !_edge && args.NewValue == _edge)
         {
           Q.Value = _d.Value;
           OnUpdate(sender, args);

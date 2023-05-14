@@ -3,7 +3,7 @@
 namespace PicoSim
 {
   public class Source<T>
-    where T : IComparable
+    where T : IComparable<T>
   {
     public Source(string name)
     {

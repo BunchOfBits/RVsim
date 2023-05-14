@@ -3,7 +3,7 @@
 namespace PicoSim
 {
   public class Port<T>
-    where T : IComparable
+    where T : IComparable<T>
   {
     private T _value;
 

@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{75FF1426-45C2-4849-B059-6A62EAD22F98}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>RVsim</RootNamespace>
     <AssemblyName>RVsim</AssemblyName>
@@ -30,6 +30,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -41,11 +44,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EXE\ALU.cs" />
+    <Compile Include="EXE\BarrelShifter\BarrelShifter.cs" />
+    <Compile Include="EXE\BarrelShifter\Stage1.cs" />
+    <Compile Include="EXE\BarrelShifter\Stage2.cs" />
+    <Compile Include="EXE\BarrelShifter\Stage3.cs" />
+    <Compile Include="EXE\BarrelShifter\Stage4.cs" />
+    <Compile Include="EXE\BarrelShifter\Stage5.cs" />
     <Compile Include="Parts\Adder.cs" />
     <Compile Include="Parts\FlipFlop.cs" />
     <Compile Include="Parts\Latch.cs" />
     <Compile Include="Parts\Register.cs" />
     <Compile Include="Parts\Sensitivity.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -56,7 +67,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DE\" />
-    <Folder Include="EXE\" />
     <Folder Include="IF\" />
     <Folder Include="MEM\" />
     <Folder Include="WB\" />

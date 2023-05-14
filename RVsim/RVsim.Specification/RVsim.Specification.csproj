@@ -48,6 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EXE\BarrelShifter\BarrelShifterTests.cs" />
     <Compile Include="Parts\AdderTests.cs" />
     <Compile Include="Parts\FlipFlopTests.cs" />
     <Compile Include="Parts\LatchTests.cs" />
