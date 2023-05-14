@@ -2,7 +2,7 @@
 
 using PicoSim;
 
-namespace RVsim
+namespace RVsim.Parts
 {
   public class Latch
   {

@@ -48,9 +48,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AdderTests.cs" />
-    <Compile Include="FlipFlopTests.cs" />
-    <Compile Include="LatchTests.cs" />
+    <Compile Include="Parts\AdderTests.cs" />
+    <Compile Include="Parts\FlipFlopTests.cs" />
+    <Compile Include="Parts\LatchTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -66,6 +66,7 @@
       <Name>RVsim</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

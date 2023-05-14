@@ -41,9 +41,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Adder.cs" />
-    <Compile Include="FlipFlop.cs" />
-    <Compile Include="Latch.cs" />
+    <Compile Include="Parts\Adder.cs" />
+    <Compile Include="Parts\FlipFlop.cs" />
+    <Compile Include="Parts\Latch.cs" />
+    <Compile Include="Parts\Register.cs" />
+    <Compile Include="Parts\Sensitivity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -51,6 +53,13 @@
       <Project>{da8f6e55-51f0-4032-826c-e92ccfe7e089}</Project>
       <Name>PicoSim</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DE\" />
+    <Folder Include="EXE\" />
+    <Folder Include="IF\" />
+    <Folder Include="MEM\" />
+    <Folder Include="WB\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

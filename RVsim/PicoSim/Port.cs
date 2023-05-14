@@ -7,16 +7,25 @@ namespace PicoSim
   {
     private T _value;
 
-    public Port(string portName, T initialValue = default)
+    public Port(string deviceName, string portName, T initialValue)
     {
-      Name = $"{portName}";
+      Name = string.IsNullOrEmpty(deviceName) ? portName : $"{deviceName}.{portName}";
       _value = initialValue;
     }
 
-    public Port(string deviceName, string portName, T initialValue = default)
+    public Port(string portName)
+      : this(string.Empty, portName, default)
     {
-      Name = $"{deviceName}.{portName}";
-      _value = initialValue;
+    }
+
+    public Port(string portName, T initialValue)
+      : this(string.Empty, portName, initialValue)
+    {
+    }
+
+    public Port(string deviceName, string portName)
+      : this(deviceName, portName, default)
+    {
     }
 
     public string Name { get; }

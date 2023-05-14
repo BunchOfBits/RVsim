@@ -2,7 +2,9 @@
 
 using PicoSim;
 
-namespace RVsim.Specification
+using RVsim.Parts;
+
+namespace RVsim.Specification.Parts
 {
   public class AdderTests
   {

@@ -2,7 +2,7 @@
 
 using PicoSim;
 
-namespace RVsim
+namespace RVsim.Parts
 {
   public class Adder
   {
@@ -22,6 +22,11 @@ namespace RVsim
       _a.PortChanged += Update;
       _b.PortChanged += Update;
       _ci.PortChanged += Update;
+    }
+
+    public Adder(string name, Port<uint> a, Port<uint> b)
+      : this(name, a, b, new Port<bool>(string.Empty, false))
+    {
     }
 
     public Port<uint> Sum { get; }
