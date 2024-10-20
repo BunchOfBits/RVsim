@@ -3,11 +3,13 @@
 namespace PicoSim
 {
   public class Source<T>
-    where T : IComparable<T>
+    where T : unmanaged, IComparable<T>
   {
-    public Source(string name)
+    public Source(string name, T initialValue = default)
     {
-      Port = new Port<T>(name);
+      Port = new Port<T>(name, initialValue);
+
+      Scheduler.Instance.Initialize(Port);
     }
 
     public Port<T> Port { get; }
@@ -15,6 +17,8 @@ namespace PicoSim
     public void Set(T p)
     {
       Port.Value = p;
+
+      Scheduler.Instance.Run();
     }
   }
 }

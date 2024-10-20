@@ -1,62 +1,75 @@
 ﻿using System;
-
 using PicoSim;
+using RVsim.Parts;
 
 namespace RVsim.EXE.BarrelShifter
 {
   internal class Stage1
   {
+    private readonly Port<uint> _combinatorial;
+
     private readonly Port<uint> _d;
     private readonly Port<byte> _amount;
     private readonly Port<bool> _right;
     private readonly Port<bool> _arithmetic;
 
-    public Stage1(string name, Port<uint> d, Port<byte> amount, Port<bool> right, Port<bool> arithmetic)
+    public Port<uint> Q { get; }
+    public Port<byte> Amount { get; }
+    public Port<bool> Right { get; }
+    public Port<bool> Arithmetic { get; }
+
+    public Stage1(string name, Port<bool> clk, Port<uint> d, Port<byte> amount, Port<bool> right, Port<bool> arithmetic)
     {
       _d = d;
       _amount = amount;
       _right = right;
       _arithmetic = arithmetic;
 
-      Q = new Port<uint>(name, nameof(Q));
+      _combinatorial = new Port<uint>($"{name}.{nameof(_combinatorial)}");
 
-      _d.PortChanged += Update;
-      _amount.PortChanged += Update;
-      _right.PortChanged += Update;
-      _arithmetic.PortChanged += Update;
+      Q = new Register<uint>($"{name}.Data", _combinatorial, clk).Q;
+      Amount = new Register<byte>($"{name}.{nameof(Amount)}", _amount, clk).Q;
+      Right = new Register<bool>($"{name}.{nameof(Right)}", _right, clk).Q;
+      Arithmetic = new Register<bool>($"{name}.{nameof(Arithmetic)}", _arithmetic, clk).Q;
+
+      _d.PortChanged += Setup;
+      _amount.PortChanged += Setup;
+      _right.PortChanged += Setup;
+      _arithmetic.PortChanged += Setup;
     }
 
-    public Port<uint> Q { get; }
-
-    private void Update(object sender, EventArgs e)
+    private void Setup(object sender, EventArgs e)
     {
-      var select = (_right.Value ? 1 : 0) + ((_amount.Value & 0x10) != 0 ? 2 : 0);
-      uint q;
+      const bool right = true;
+      const bool left = false;
+      const bool shift16 = true;
+      const bool shift0 = false;
+      const bool logical = false;
+      const bool arithmetic = true;
 
-      switch(select)
+      switch (_arithmetic.Value, _right.Value, (_amount.Value & 0x10) != 0)
       {
-        case 0: // No shift, left
-          q = _d.Value;
+        case (_, _, shift0):
+          _combinatorial.Value = _d.Value;
           break;
-        case 1: // No shift, right
-          q = _d.Value;
+        case (_, left, shift16):
+          _combinatorial.Value = _d.Value << 16;
           break;
-        case 2: // Shift, left
-          q = _d.Value << 16;
+        case (logical, right, shift16):
+          _combinatorial.Value = _d.Value >> 16;
           break;
-        case 3: // Shift, right
-          q = _d.Value >> 16;
+        case (arithmetic, right, shift16):
+          var d = _d.Value >> 16;
 
-          if (((_d.Value & 0x8000_0000) != 0) && _arithmetic.Value)
+          if ((_d.Value & 0x8000_0000) != 0)
           {
-            q |= 0x8000_0000;
+            d |= 0xFFFF_0000;
           }
-          break;
-        default:
-          throw new InvalidOperationException();
-      }
 
-      Q.Value = q;
+          _combinatorial.Value = d;
+
+          break;
+      }
     }
   }
 }

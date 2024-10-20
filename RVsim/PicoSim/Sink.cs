@@ -3,7 +3,7 @@
 namespace PicoSim
 {
   public class Sink<T>
-    where T : IComparable<T>
+    where T : unmanaged, IComparable<T>
   {
     private readonly Port<T> _port;
 

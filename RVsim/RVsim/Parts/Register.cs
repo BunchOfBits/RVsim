@@ -5,7 +5,7 @@ using PicoSim;
 namespace RVsim.Parts
 {
   public class Register<T>
-    where T : IComparable<T>
+    where T : unmanaged, IComparable<T>
   {
     private readonly Port<T> _d;
     private readonly Port<bool> _e;
@@ -38,13 +38,14 @@ namespace RVsim.Parts
 
     private void Update(object sender, PortChangingEventArgs<bool> args)
     {
-      if (_e.Value)
+      var enabled = _e.Value;
+      var activeEdge = _clk.Value == !_edge && args.NewValue == _edge;
+      var valueChanged = !Q.Value.Equals(_d.Value);
+
+      if (enabled && activeEdge && valueChanged)
       {
-        if (_clk.Value == !_edge && args.NewValue == _edge)
-        {
-          Q.Value = _d.Value;
-          OnUpdate(sender, args);
-        }
+        Q.Value = _d.Value;
+        OnUpdate(sender, args);
       }
     }
 

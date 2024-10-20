@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.32014.148
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PicoSim", "PicoSim\PicoSim.csproj", "{DA8F6E55-51F0-4032-826C-E92CCFE7E089}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PicoSim", "PicoSim\PicoSim.csproj", "{DA8F6E55-51F0-4032-826C-E92CCFE7E089}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RVsim.Specification", "RVsim.Specification\RVsim.Specification.csproj", "{8BE5E751-6027-4DA0-83A0-97E9FC5BBAEB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RVsim.Specification", "RVsim.Specification\RVsim.Specification.csproj", "{8BE5E751-6027-4DA0-83A0-97E9FC5BBAEB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RVsim", "RVsim\RVsim.csproj", "{75FF1426-45C2-4849-B059-6A62EAD22F98}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RVsim", "RVsim\RVsim.csproj", "{75FF1426-45C2-4849-B059-6A62EAD22F98}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RVsim.Runner", "RVsim.Runner\RVsim.Runner.csproj", "{1B513DAF-0390-4273-818D-1B3F7E1FDF67}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{75FF1426-45C2-4849-B059-6A62EAD22F98}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{75FF1426-45C2-4849-B059-6A62EAD22F98}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{75FF1426-45C2-4849-B059-6A62EAD22F98}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B513DAF-0390-4273-818D-1B3F7E1FDF67}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B513DAF-0390-4273-818D-1B3F7E1FDF67}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B513DAF-0390-4273-818D-1B3F7E1FDF67}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B513DAF-0390-4273-818D-1B3F7E1FDF67}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,0 +1,11 @@
+file.elf:     file format elf64-littleriscv
+
+
+Disassembly of section .text:
+
+0000000000000000 <_boot>:
+   0:	3e800093          	li	ra,1000
+   4:	7d008113          	addi	sp,ra,2000
+   8:	c1810193          	addi	gp,sp,-1000
+   c:	83018213          	addi	tp,gp,-2000
+  10:	3e820293          	addi	t0,tp,1000 # 3e8 <_boot+0x3e8>
