@@ -16,6 +16,11 @@ namespace PicoSim
 
     public void Set(T p)
     {
+      if (Port.Value.CompareTo(p) == 0)
+      {
+        return;
+      }
+
       Port.Value = p;
 
       Scheduler.Instance.Run();

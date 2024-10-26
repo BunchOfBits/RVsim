@@ -22,7 +22,13 @@ namespace PicoSim
     {
       get => _value;
 
-      set => Scheduler.Instance.Schedule(this, value);
+      set
+      {
+        if (_value.CompareTo(value) != 0)
+        {
+          Scheduler.Instance.Schedule(this, value);
+        }
+      }
     }
 
     public event EventHandler<PortChangingEventArgs<T>> PortChanging;
