@@ -84,8 +84,6 @@ public class FullAdderTests
   }
 
   [TestCase((byte)21, (byte)21, false, false, (byte)42)]
-  [TestCase((byte)255, (byte)1, false, false, (byte)0)]
-  [TestCase((byte)255, (byte)0, true, false, (byte)0)]
   [TestCase((byte)0xff, (byte)1, false, true, (byte)0)]
   [TestCase((byte)0xff, (byte)0, true, true, (byte)0)]
   [TestCase((byte)0x99, (byte)0xff, false, true, (byte)0x98)]

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace PicoSim;
 
@@ -22,13 +22,7 @@ public class Port<T> : PortBase
   {
     get => _value;
 
-    set
-    {
-      if (_value.CompareTo(value) != 0)
-      {
-        Scheduler.Instance.Schedule(this, value);
-      }
-    }
+    set => Scheduler.Instance.Schedule(this, value);
   }
 
   public event EventHandler<PortChangingEventArgs<T>> PortChanging;
@@ -60,7 +54,6 @@ public class Port<T> : PortBase
       { } t when t == typeof(ulong) => 64,
       _ => throw new ArgumentException($"{typeof(T).Name} is not supported"),
     };
-
   }
 
   public override string ToString() => $"{Name}={_value}";
