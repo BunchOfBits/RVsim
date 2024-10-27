@@ -1,29 +1,28 @@
 ﻿using System;
 
-namespace PicoSim
+namespace PicoSim;
+
+public class Source<T>
+  where T : unmanaged, IComparable<T>, IConvertible
 {
-  public class Source<T>
-    where T : unmanaged, IComparable<T>
+  public Source(string name, T initialValue = default)
   {
-    public Source(string name, T initialValue = default)
-    {
-      Port = new Port<T>(name, initialValue);
+    Port = new Port<T>(name, initialValue);
 
-      Scheduler.Instance.Initialize(Port);
+    Scheduler.Instance.Initialize(Port);
+  }
+
+  public Port<T> Port { get; }
+
+  public void Set(T p)
+  {
+    if (Port.Value.CompareTo(p) == 0)
+    {
+      return;
     }
 
-    public Port<T> Port { get; }
+    Port.Value = p;
 
-    public void Set(T p)
-    {
-      if (Port.Value.CompareTo(p) == 0)
-      {
-        return;
-      }
-
-      Port.Value = p;
-
-      Scheduler.Instance.Run();
-    }
+    Scheduler.Instance.Run();
   }
 }

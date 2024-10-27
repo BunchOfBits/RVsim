@@ -1,8 +1,7 @@
-﻿namespace RVsim.Parts
+﻿namespace RVsim.Parts;
+
+public enum Sensitivity
 {
-  public enum Sensitivity
-  {
-    PositiveEdge,
-    NegativeEdge,
-  };
-}
+  PositiveEdge,
+  NegativeEdge,
+};

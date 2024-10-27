@@ -1,9 +1,8 @@
-namespace PicoSim
-{
-  public abstract class PortBase
-  {
-    public string Name { get; init; }
+namespace PicoSim;
 
-    internal abstract void Set(object o);
-  }
+public abstract class PortBase
+{
+  public string Name { get; init; }
+
+  internal abstract void Set(object o);
 }

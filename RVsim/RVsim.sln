@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RVsim.Specification", "RVsi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RVsim", "RVsim\RVsim.csproj", "{75FF1426-45C2-4849-B059-6A62EAD22F98}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RVsim.Runner", "RVsim.Runner\RVsim.Runner.csproj", "{1B513DAF-0390-4273-818D-1B3F7E1FDF67}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RVsim.Runner", "RVsim.Runner\RVsim.Runner.csproj", "{1B513DAF-0390-4273-818D-1B3F7E1FDF67}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PicoSim.Specification", "PicoSim.Specification\PicoSim.Specification.csproj", "{94927369-1B8A-4D40-A644-68DD83C22BF1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{1B513DAF-0390-4273-818D-1B3F7E1FDF67}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1B513DAF-0390-4273-818D-1B3F7E1FDF67}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1B513DAF-0390-4273-818D-1B3F7E1FDF67}.Release|Any CPU.Build.0 = Release|Any CPU
+		{94927369-1B8A-4D40-A644-68DD83C22BF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94927369-1B8A-4D40-A644-68DD83C22BF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94927369-1B8A-4D40-A644-68DD83C22BF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94927369-1B8A-4D40-A644-68DD83C22BF1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,23 +1,22 @@
 ﻿using System;
 
-namespace PicoSim
+namespace PicoSim;
+
+public class Sink<T>
+  where T : unmanaged, IComparable<T>, IConvertible
 {
-  public class Sink<T>
-    where T : unmanaged, IComparable<T>
+  private readonly Port<T> _port;
+
+  public T Value
   {
-    private readonly Port<T> _port;
-
-    public T Value
+    get
     {
-      get
-      {
-        return _port.Value;
-      }
+      return _port.Value;
     }
+  }
 
-    public Sink(Port<T> port)
-    {
-      _port = port;
-    }
+  public Sink(Port<T> port)
+  {
+    _port = port;
   }
 }
