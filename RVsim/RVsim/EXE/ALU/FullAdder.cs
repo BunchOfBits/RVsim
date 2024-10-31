@@ -12,16 +12,16 @@ public class FullAdder<T>
 
   public FullAdder(string name, Port<T> A, Port<T> B, Port<bool> Ci)
   {
-    var aBits = new Splitter<T>($"{name}.{nameof(A)}.Splitter", A);
-    var bBits = new Splitter<T>($"{name}.{nameof(B)}.Splitter", B);
+    var aBits = new Splitter<T>($"{name}.{nameof(A)}.{nameof(Splitter<T>)}", A);
+    var bBits = new Splitter<T>($"{name}.{nameof(B)}.{nameof(Splitter<T>)}", B);
     var slices = new FullAdderBitSlice[A.Size()];
 
     for (var i = 0; i < slices.Length; i++)
     {
-      slices[i] = new FullAdderBitSlice($"{name}.Slice[{i}]", aBits.Q[i], bBits.Q[i], i == 0 ? Ci : slices[i - 1].Co);
+      slices[i] = new FullAdderBitSlice($"{name}.{nameof(FullAdderBitSlice)}[{i}]", aBits.Q[i], bBits.Q[i], i == 0 ? Ci : slices[i - 1].Co);
     }
 
-    Sum = new Joiner<T>($"{name}.{nameof(Sum)}.Joiner", slices.Select(s => s.Sum).ToArray()).Q;
+    Sum = new Joiner<T>($"{name}.{nameof(Sum)}.{nameof(Joiner<T>)}", slices.Select(s => s.Sum).ToArray()).Q;
     Co = slices[^1].Co;
   }
 }
